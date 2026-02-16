@@ -1,0 +1,33 @@
+
+> output@0.1.0 lint
+> eslint
+
+
+C:\Users\Sam\Desktop\Abstrabit-BookMark\app\login\login-button.tsx
+  11:9  warning  'router' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Sam\Desktop\Abstrabit-BookMark\components\bookmark-manager.tsx
+  32:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\Sam\Desktop\Abstrabit-BookMark\components\bookmark-manager.tsx:32:5
+  30 |   useEffect(() => {
+  31 |     // Initial sort by newest first (assuming server returns this, but let's enforce)
+> 32 |     setBookmarks(prev => [...prev].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()))
+     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  33 |
+  34 |     const channel = supabase
+  35 |       .channel('realtime bookmarks')  react-hooks/set-state-in-effect
+
+C:\Users\Sam\Desktop\Abstrabit-BookMark\components\ui\input.tsx
+  5:11  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\Sam\Desktop\Abstrabit-BookMark\utils\supabase\proxy.ts
+  21:48  warning  'options' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 4 problems (2 errors, 2 warnings)

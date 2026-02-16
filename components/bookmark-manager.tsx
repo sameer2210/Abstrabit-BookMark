@@ -19,7 +19,9 @@ export type Bookmark = {
 }
 
 export function BookmarkManager({ initialBookmarks }: { initialBookmarks: Bookmark[] }) {
-  const [bookmarks, setBookmarks] = useState<Bookmark[]>(initialBookmarks)
+  const [bookmarks, setBookmarks] = useState<Bookmark[]>(() =>
+    [...initialBookmarks].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+  )
   const supabase = createClient()
   const [isAdding, setIsAdding] = useState(false)
   const [isFetchingTitle, setIsFetchingTitle] = useState(false)
@@ -28,9 +30,6 @@ export function BookmarkManager({ initialBookmarks }: { initialBookmarks: Bookma
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
-    // Initial sort by newest first (assuming server returns this, but let's enforce)
-    setBookmarks(prev => [...prev].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()))
-
     const channel = supabase
       .channel('realtime bookmarks')
       .on(

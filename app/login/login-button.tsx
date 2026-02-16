@@ -3,12 +3,10 @@
 
 import { createClient } from '@/utils/supabase/client'
 import { Loader2 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 export function LoginButton() {
   const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
 
   const handleLogin = async () => {
     setIsLoading(true)
