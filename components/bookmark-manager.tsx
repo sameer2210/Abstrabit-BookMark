@@ -200,7 +200,7 @@ export function BookmarkManager({ initialBookmarks }: { initialBookmarks: Bookma
               }}
             />
           </div>
-          <Button type="submit" disabled={isAdding} className="w-full md:w-auto min-w-[120px]">
+          <Button type="submit" disabled={isAdding} className="w-full md:w-auto min-w-30">
             {isAdding ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Add'}
           </Button>
         </form>

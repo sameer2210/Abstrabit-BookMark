@@ -29,7 +29,7 @@ export function LoginButton() {
     <button
       onClick={handleLogin}
       disabled={isLoading}
-      className="flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-70"
+      className="flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md active:translate-y-1px disabled:cursor-not-allowed disabled:opacity-70"
     >
       <span className="flex items-center justify-center gap-2">
         {isLoading ? (

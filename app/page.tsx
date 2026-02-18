@@ -73,7 +73,7 @@ export default async function Home() {
                 {Array.from({ length: 4 }).map((_, index) => (
                   <span
                     key={index}
-                    className="h-7 w-7 rounded-full border border-white/20 bg-gradient-to-br from-white/20 to-white/5"
+                    className="h-7 w-7 rounded-full border border-white/20 bg-linear-to-br from-white/20 to-white/5"
                   />
                 ))}
               </div>
