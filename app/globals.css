@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f6f2;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #1d4ed8;
+  --primary-foreground: #f8fafc;
+  --secondary: #f2f1ea;
+  --secondary-foreground: #111827;
+  --muted: #eef1f5;
+  --muted-foreground: #6b7280;
+  --accent: #e0f2fe;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #2563eb;
+  --radius: 16px;
+  --brand-1: #2563eb;
+  --brand-2: #0ea5e9;
+  --brand-3: #14b8a6;
+  --page-glow: rgba(37, 99, 235, 0.16);
+  --page-glow-2: rgba(20, 184, 166, 0.14);
+  --page-bg-start: #f7f6f2;
+  --page-bg-mid: #ffffff;
+  --page-bg-end: #edf3ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius: var(--radius);
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-code);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b0f1a;
+    --foreground: #e5e7eb;
+    --card: #111827;
+    --card-foreground: #e5e7eb;
+    --popover: #0f172a;
+    --popover-foreground: #e5e7eb;
+    --primary: #60a5fa;
+    --primary-foreground: #0b1220;
+    --secondary: #111827;
+    --secondary-foreground: #e5e7eb;
+    --muted: #0f172a;
+    --muted-foreground: #94a3b8;
+    --accent: #0b2a3d;
+    --accent-foreground: #dbeafe;
+    --destructive: #f87171;
+    --destructive-foreground: #0b0f1a;
+    --border: #1f2937;
+    --input: #1f2937;
+    --ring: #60a5fa;
+    --page-glow: rgba(96, 165, 250, 0.12);
+    --page-glow-2: rgba(56, 189, 248, 0.1);
+    --page-bg-start: #0b0f1a;
+    --page-bg-mid: #0b1220;
+    --page-bg-end: #0a0f1a;
   }
 }
 
+* {
+  border-color: var(--border);
+}
+
 body {
-  background: var(--background);
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 800px at 6% -10%, var(--page-glow), transparent 60%),
+    radial-gradient(1000px 700px at 95% -5%, var(--page-glow-2), transparent 55%),
+    linear-gradient(180deg, var(--page-bg-start) 0%, var(--page-bg-mid) 45%, var(--page-bg-end) 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--brand-1), var(--brand-2), var(--brand-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(15 23 42 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(60% 60% at 50% 0%, #000 0%, transparent 100%);
+}
+
+.glass-panel {
+  background: color-mix(in oklab, var(--card) 80%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 65%, transparent);
+  box-shadow:
+    0 20px 50px -30px rgba(15, 23, 42, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(14px);
+}
+
+.soft-ring {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--border) 60%, transparent);
+}
+
+.fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floaty {
+  animation: float 6s ease-in-out infinite;
 }

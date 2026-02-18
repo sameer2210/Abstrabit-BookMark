@@ -18,20 +18,24 @@ export function Header() {
   }
 
   return (
-    <header className="flex h-16 w-full items-center justify-between border-b px-4 md:px-6 bg-background sticky top-0 z-10 shadow-sm">
-      <div className="flex items-center gap-2 font-bold text-xl text-primary">
-        <Bookmark className="h-6 w-6 text-indigo-600" />
-        <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Abstrabit Bookmark</span>
+    <header className="sticky top-0 z-30 w-full border-b border-border/60 bg-background/70 backdrop-blur-md">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 md:px-6">
+        <div className="flex items-center gap-3 font-semibold text-lg">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary shadow-sm">
+            <Bookmark className="h-5 w-5" />
+          </span>
+          <span className="text-gradient">Abstrabit Bookmark</span>
+        </div>
+        <Button
+          onClick={handleLogout}
+          variant="outline"
+          className="border-destructive/40 text-destructive hover:bg-destructive/10"
+          size="sm"
+        >
+          <LogOut className="h-4 w-4" />
+          Log out
+        </Button>
       </div>
-      <Button
-        onClick={handleLogout}
-        variant="destructive"
-        className="bg-red-500 hover:bg-red-600 text-white"
-        size="sm"
-      >
-        <LogOut className="h-4 w-4 mr-2" />
-        Log out
-      </Button>
     </header>
   )
 }
