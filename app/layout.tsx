@@ -17,7 +17,7 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Abstrabit Bookmark',
+  title: ' Bookmark',
   description: 'Smart bookmark manager for the modern web.',
 }
 

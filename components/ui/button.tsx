@@ -6,25 +6,26 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold tracking-tight ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:translate-y-[1px]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold tracking-tight ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:translate-y-[1px]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md",
+        default:
+          "bg-primary text-primary-foreground shadow-[0_8px_20px_-12px_rgba(249,115,22,0.6)] hover:bg-primary/90 hover:shadow-[0_10px_24px_-12px_rgba(249,115,22,0.7)]",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 hover:shadow-md",
+          "bg-destructive text-destructive-foreground shadow-[0_8px_20px_-12px_rgba(239,68,68,0.5)] hover:bg-destructive/90",
         outline:
-          "border border-input bg-background/70 shadow-sm hover:bg-background hover:text-foreground",
+          "border border-border/80 bg-transparent text-foreground/80 shadow-sm hover:bg-secondary hover:text-foreground",
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "shadow-none hover:bg-accent hover:text-accent-foreground",
+        ghost: "shadow-none text-foreground/80 hover:bg-white/5 hover:text-foreground",
         link: "shadow-none text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-11 px-5",
-        sm: "h-9 rounded-lg px-3",
-        lg: "h-12 rounded-xl px-8 text-base",
-        icon: "h-11 w-11",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-12 rounded-md px-8 text-base",
+        icon: "h-11 w-11 rounded-md",
       },
     },
     defaultVariants: {

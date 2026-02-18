@@ -162,7 +162,7 @@ export function BookmarkManager({ initialBookmarks }: { initialBookmarks: Bookma
                 type="button"
                 onClick={handleFetchTitle}
                 disabled={isFetchingTitle || !url}
-                className="inline-flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-foreground/80 transition hover:bg-secondary/80 disabled:opacity-60"
+                className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-foreground/80 transition hover:bg-white/10 disabled:opacity-60"
               >
                 {isFetchingTitle ? (
                   <Loader2 className="h-3 w-3 animate-spin" />
@@ -215,9 +215,9 @@ export function BookmarkManager({ initialBookmarks }: { initialBookmarks: Bookma
              initial={{ opacity: 0, scale: 0.9 }}
              animate={{ opacity: 1, scale: 1 }}
              exit={{ opacity: 0, scale: 0.9 }}
-             className="col-span-full flex flex-col items-center justify-center p-12 text-center border-2 border-dashed rounded-2xl bg-background/60"
+             className="col-span-full flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/5 p-12 text-center"
            >
-             <div className="rounded-full bg-secondary p-4 mb-4">
+             <div className="rounded-full bg-white/10 p-4 mb-4">
                <Globe className="h-8 w-8 text-primary" />
              </div>
              <h3 className="text-lg font-semibold text-foreground">No bookmarks yet</h3>
@@ -233,7 +233,7 @@ export function BookmarkManager({ initialBookmarks }: { initialBookmarks: Bookma
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   key={bookmark.id}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/70 bg-card/80 text-card-foreground shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-black/40 text-card-foreground shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
                 >
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
@@ -253,7 +253,7 @@ export function BookmarkManager({ initialBookmarks }: { initialBookmarks: Bookma
                       {bookmark.url}
                     </p>
                   </div>
-                  <div className="bg-muted/40 p-3 px-5 flex items-center justify-between border-t">
+                  <div className="border-t border-white/10 bg-black/60 p-3 px-5 flex items-center justify-between">
                     <span className="text-xs text-muted-foreground/80 font-mono">
                       {new Date(bookmark.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
                     </span>

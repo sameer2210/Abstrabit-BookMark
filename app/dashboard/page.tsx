@@ -32,7 +32,7 @@ export default async function Dashboard() {
     <div className="flex w-full flex-col gap-10">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary/70">
             Dashboard
           </p>
           <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">Your Bookmarks</h1>
